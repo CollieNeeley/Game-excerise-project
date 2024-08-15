@@ -14,13 +14,19 @@
     </div>
     <nav>
         <a href="index.html">Home</a>
-        <a href="#">Games</a>
+        <div class="dropdown">
+        <a href="#" class="dropbtn">Games</a>
+        <div class="dropdown-content">
+        <a href="#">Anagram Hunt</a>
+        <a href="games/math-facts.html">Math Facts Pratice</a>
+        </div>
+        </div>
         <a href="about.html">About</a>
         <a href="login.html">Login</a>
     </nav>
     </header>
     <main class="container">
-    <h2>Login in</h2>
+    <h2>Log in</h2>
     <form action="javascript:alert('Form Submitted');">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
@@ -33,9 +39,14 @@
 <footer>
 <p>&copy; 2024 Play2Learn</p>
 <div class="social-media">
-<i class="fa-brands fa-facebook"></i>
-<i class="fa-brands fa-twitter"></i>
-<i class="fa-brands fa-instagram"></i>
+    <a href="contact-us.html">
+    <i class="fa-solid fa-envelope"></i></a>
+    <a href="https://facebook.com" target="_blank">
+    <i class="fa-brands fa-facebook"></i></a>
+    <a href="https://twitter.com" target="_blank">
+    <i class="fa-brands fa-twitter"></i></a>
+    <a href="https://instagram.com" target="_blank">
+    <i class="fa-brands fa-instagram"></i></a>
 </div>
 </footer>
 </body>
