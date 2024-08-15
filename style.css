@@ -21,16 +21,51 @@ header h1 {
     margin: 0;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 nav {
     text-align: center;
     margin-top: 10px;
+    display: flex;
 }
 
 nav a {
-    text-decoration: none;
-    color: #333;
-    margin: 0 15px;
-    font-size: 1.1em;
+   margin: 0 10px;
+   text-decoration: none;
+   color: #333;
+   font-weight: bold;
+   position: relative;
 }
 
 nav a:hover {
@@ -95,13 +130,13 @@ footer p {
 }
 
 footer .social-icons a {
-    margin: 0 10px;
+    margin: 0 20px;
     color: #333;
     text-decoration: none;
 }
 
 footer .social-icons a:hover {
-    color: #007bff;
+    color:  blue
 }
 
 form {
@@ -147,4 +182,8 @@ form input[type="submit"]:hover, form button:hover {
 .game {
     width: 100%;
     margin-bottom: 20px;
+}
+
+.quote {
+    color: #4cae4c;
 }
