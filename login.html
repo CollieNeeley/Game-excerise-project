@@ -26,15 +26,44 @@
     </nav>
     </header>
     <main class="container">
+    <div id="loginForm">
     <h2>Log in</h2>
-    <form action="javascript:alert('Form Submitted');">
+    <form onsubmit="alert('Form Submitted'); return false;">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
+    <br>
+    <br>
     <label for="password">Password</label>
     <input type="password" id="password" name="password" required>
+    <br>
+    <br>
     <input type="submit" value="login">
+    <p><a href="#" onclick="showRegisterForm()">Need an account? Register</a></p>
     </form>
-    <p><a href="#">Need an account? Register</a></p>
+    </div>
+    <div id="registerForm" style="display: none;">
+        <h2>Register</h2>
+    <form onsubmit="alert('Form Submitted'); return false;">
+    <label for="registerEmail">Email:</label>
+    <input type="email" id="registerEmail" name="email" required>
+    <br>
+    <br>
+    <label for="registerPassword">Password:</label>
+    <input type="password" id="registerPassword" name="password" required>
+    <br>
+    <br>
+    <label for="registerPasswordRepeat">Repeat Password:</label>
+    <input type="password" id="registerPasswordRepeat" name="passwordRepeat" required>
+    <br>
+    <br>
+    <input type="checkbox" id="ageCheck" name="ageCheck" required>
+    <label for="ageCheck">I am over 13 and like playing games.</label>
+    <br>
+    <br>
+    <input type="submit" value="register">
+    <p><a href="#" onclick="showLoginForm()">Have an account? Log in</a></p>
+    </form>
+    </div>
 </main>
 <footer>
 <div class="social-media">
@@ -49,5 +78,6 @@
 </div>
 <p>&copy;2024 Play2Learn</p>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>
