@@ -10,15 +10,17 @@ body, html {
 }
 
 header {
-    background-color: #f8f8f8;
+    background-color: wheat;
     padding: 20px 0;
     border-bottom: 1px solid black;
+    font-size: 20px;
 }
 
 header h1 {
     text-align: center;
     font-size: 2em;
     margin: 0;
+    text-shadow: darkgreen -0.5rem 0.5rem 0.25rem;
 }
 
 .dropdown {
@@ -47,7 +49,7 @@ header h1 {
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: #dad0d0;
 }
 
 .dropdown:hover .dropdown-content {
@@ -63,13 +65,14 @@ nav {
 nav a {
    margin: 0 10px;
    text-decoration: none;
-   color: #333;
+   color: black;
    font-weight: bold;
    position: relative;
 }
 
 nav a:hover {
     text-decoration: underline;
+    color: blue;
 }
 
 main {
@@ -86,7 +89,7 @@ main .quote {
     width: 45%;
     padding: 20px;
     border: 1px solid black;
-    background-color: #f9f9f9;
+    background-color: wheat;
     text-align: center;
 }
 
@@ -97,7 +100,7 @@ main .quote {
 
 .game p {
     font-size: 1em;
-    color: #666;
+    color: black;
     line-height: 1.5;
 }
 
@@ -113,31 +116,9 @@ main .quote {
 }
 
 .game .play-btn:hover {
-    background-color: #4cae4c;
+    background-color: darkgreen;
 }
 
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #f8f8f8;
-    border-top: 1px solid black;
-    margin-top: 20px;
-}
-
-footer p {
-    margin: 5px 0;
-    font-size: 0.9em;
-}
-
-footer .social-icons a {
-    margin: 0 20px;
-    color: #333;
-    text-decoration: none;
-}
-
-footer .social-icons a:hover {
-    color:  blue
-}
 
 form {
     margin: 20px 0;
@@ -158,6 +139,7 @@ form input[type="text"], form input[type="email"], form input[type="password"], 
     margin-bottom: 15px;
     border: 1px solid black;
     border-radius: 4px;
+    background-color: wheat;
 }
 
 form input[type="submit"], form button {
@@ -170,7 +152,7 @@ form input[type="submit"], form button {
 }
 
 form input[type="submit"]:hover, form button:hover {
-    background-color: #4cae4c;
+    background-color: darkgreen;
 }
 
 @media (max-width: 768px) {
@@ -192,7 +174,7 @@ form input[type="submit"]:hover, form button:hover {
     max-width: 800px;
     margin: 20px auto;
     padding: 100px;
-    background-color: #ffffff;
+    background-color: wheat;
     border: 1px solid black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -225,12 +207,51 @@ form input[type="submit"]:hover, form button:hover {
 }
 
 .options button:hover {
-    background-color: #45a049;
+    background-color: darkgreen;
 }
 
 .instructions {
     text-align: left;
     margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.button-grid button {
+    padding: 20px;
+    font-size: 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+#start-button, #play-again {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#start-button:hover, #play-again:hover {
+    background-color: darkgreen;
 }
 
 footer {
@@ -245,7 +266,7 @@ footer {
 
 footer .social-icons a {
     margin: 0 10px;
-    color: #555;
+    color: blue;
     text-decoration: none;
     font-size: 24px;
 }
@@ -253,5 +274,28 @@ footer .social-icons a {
 footer p {
     margin-top: 10px;
     font-size: 12px;
-    color: #777;
+    color: blue;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: wheat;
+    border-top: 1px solid black;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+footer .social-icons a {
+    margin: 0 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+footer .social-icons a:hover {
+    color:  blue
 }
