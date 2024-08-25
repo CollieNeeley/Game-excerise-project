@@ -223,7 +223,8 @@ form input[type="submit"]:hover, form button:hover {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin: 20px 0;
+    margin: 20px auto;
+    width: fit-content;
 }
 
 .button-grid button {
@@ -236,7 +237,7 @@ form input[type="submit"]:hover, form button:hover {
     cursor: pointer;
 }
 
-button:hover {
+.button-grid button:hover {
     background-color: darkgreen;
 }
 
@@ -252,6 +253,23 @@ button:hover {
 
 #start-button:hover, #play-again:hover {
     background-color: darkgreen;
+}
+
+#game-play {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#problem-display {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+#answer-field {
+    font-size: 1rem;
+    padding: 10px;
+    width: 50%;
+    margin-bottom: 20px;
 }
 
 footer {
