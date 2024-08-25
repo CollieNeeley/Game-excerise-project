@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset ="UTF-8">
-<meta name ="viewport" content="width"=device-width,initial-scale=1.0">
-<title>Math Facts Pratice </title>
+<meta charset = "UTF-8">
+<meta name = "viewport" content = "width=device-width,initial-scale=1.0">
+<title>Math Facts Pratice</title>
 <link rel="stylesheet" href="../style.css">
 <script src="https://kit.fontawesome.com/28373dab32.js" crossorigin="anonymous"></script>
 </head>
@@ -25,7 +25,7 @@
             <a href="login.html">Login</a>
         </nav>
         </header>
-<div class="content">
+<div id="game-start" class="content">
 <h1>Math Facts Pratice</h1>
 <div class="options">
 <label for="operation">Operation:</label>
@@ -35,7 +35,7 @@
 <option value="multiplication">Multiplication</option>
 <option value="division">Division</option>
 </select>
-<button type="button">Go</button>
+<button id="start-button">GO</button>
 </div>
 <div class="instructions">
 <ol>
@@ -44,6 +44,17 @@
 <li>How many problems can you solve in 30 seconds?</li>
 </ol>
 </div>
+</div>
+<div id="game-play" class="hidden">
+<h2 id="problem-display"></h2>
+<input type="text" id="answer-field" autofocus>
+<div class="button-grid"></div>
+<p>Score: <span id="score">0</span></p>
+<p>Time Left: <span id="time-left">30</span>Seconds</p>
+</div>
+<div id="game-end" class="hidden">
+<h2>your final score is: <span id="final-score">0</span></h2>
+<button id="play-again">Play Again</button>
 </div>
 <footer>
 <div class="social-media">
@@ -59,5 +70,6 @@
     </div>
     <p>&copy;2024 Play2Learn</p>
     </footer>
+    <script src="../script.js"></script>
 </body>
 </html>
