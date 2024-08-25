@@ -35,19 +35,16 @@ function changeQuote() {
 
         //update the index, looping back to the first quote
         currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-} else {
-    console.error('quote element not found.');
-}
+    }
 }
 
 //time of quote to change
 setInterval(changeQuote, 10000);
-
 changeQuote();
 
 //Start of js for game
 
-document.addEventListener('DOM-ContentLoaded', () => {
+console.log('DOM fully loads');
 const startButton = document.getElementById('start-button');
 const playAgainButton = document.getElementById('play-again');
 const gameStart = document.getElementById('game-start');
@@ -59,22 +56,17 @@ const scoreDisplay = document.getElementById('score');
 const timeLeftDisplay = document.getElementById('time-left');
 const finalScoreDisplay = document.getElementById('final-score');
 
-const quoteElement = document.getElementById('quote');
-if (quoteElement) {
-    console.log('quote element found');
-} else {
-    console.error('quote element not found');
-}
-
 let score = 0;
 let timeLeft = 30;
 let timer;
 
-startButton.addEventListener('click', function() {
-    console.log('GO button clicked');
+document.getElementById('start-button').addEventListener('click', function() {
+    console.log('GO button was clicked');
+    const gameStart = document.getElementById('game-start');
+    const gamePlay = document.getElementById('game-play');
     gameStart.classList.add('hidden');
     gamePlay.classList.remove('hidden');
-    startGame();
+    generateProblem();
 });
 
 playAgainButton.addEventListener('click', function () {
@@ -94,12 +86,25 @@ function startGame() {
 }
 
 function generateProblem() {
+    console.log('generate problem');
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
+    const problemDisplay = document.getElementById('problem-display');
+    if (problemDisplay) {
+        console.log(`updating problem display: ${num1} + ${num2}`);
     problemDisplay.textContent = `$ {num1} + {num2}`;
-    answerField.value = '';
-    answerField.focus();
+    } else {
+        console.log('element with id problem-display not found');
+    }
+    const answerField = document.getElementById('answer-field');
+    if (answerField) {
+        answerField.value = '';
+        answerField.focus();
+    } else {
+        console.error('element with id answer-field not found');
+    }
 }
+
 
 answerField.addEventListener('keyup', function(e) {
     if (e.key === 'Enter') {
@@ -146,4 +151,3 @@ function resetGame() {
     timeLeftDisplay.textContent = timeLeft;
     answerField.removeEventListener('keyup', checkAnswer);
 }
-});
