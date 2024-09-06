@@ -89,65 +89,47 @@ function generateProblem() {
     console.log('generate problem');
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
-    const problemDisplay = document.getElementById('problem-display');
-    if (problemDisplay) {
-        console.log(`updating problem display: ${num1} + ${num2}`);
-    problemDisplay.textContent = `$ {num1} + {num2}`;
-    } else {
-        console.log('element with id problem-display not found');
+    const operation = document.getElementById('operation').value;
+    let operationSymbol = '+';
+    let correctAnswer;
+
+    switch (operation) {
+        case 'addition':
+            correctAnswer = num1 + num2;
+            operationSymbol = '+';
+
+            break;
+         case 'subtraction':
+            correctAnswer = num1 - num2;
+            operationSymbol = '-';
+
+            break;
+        case 'multiplication':
+            correctAnswer = num1 * num2;
+            operationSymbol = 'x';
+
+            break;
+        case 'division':
+            correctAnswer = Math.floor(num1 / num2);
+            operationSymbol = '/'
+
+            break;
     }
-    const answerField = document.getElementById('answer-field');
-    if (answerField) {
-        answerField.value = '';
+
+    problemDisplay.textContent = `${num1} ${operationSymbol} ${num2}`;
+    answerField.value = '';
+    answerField.focus();
+
+    answerField.dataset.correctAnswer = correctAnswer;
+}
+
+document.querySelectorAll('.button-grid button').forEach(button => {
+    button.addEventListener('click', function() {
+        if (this.textContent === 'CLEAR') {
+            answerField.value = ''; 
+        } else {
+            answerField.value += this.textContent;
+        }
         answerField.focus();
-    } else {
-        console.error('element with id answer-field not found');
-    }
-}
-
-
-answerField.addEventListener('keyup', function(e) {
-    if (e.key === 'Enter') {
-        checkAnswer();
-    }
+    });
 });
-
-function checkAnswer() {
-        const [num1, , num2] = problemDisplay.textContent.split (' + ').map(number);
-        const correctAnswer = num1 + num2;
-    if (parseInt(answerField.value) === correctAnswer) {
-        score ++;
-        updateScore();
-        generateProblem();
-    } else {
-        answerField.value = '';
-        answerField.focus();    
-    }
-}
-
-function updateTime() {
-    timeLeft--;
-    timeLeftDisplay.textContent = timeLeft;
-    if (timeLeft <= 0) {
-        clearInterval(timer);
-        endGame();
-    }
-}
-
-function updateScore() {
-    scoreDisplay.textContent = score;
-}
-
-function endGame() {
-    gamePlay.classList.add('hidden');
-    gameEnd.classList.remove('hidden');
-    finalScoreDisplay.textContent = score;
-}
-
-function resetGame() {
-    score = 0;
-    timeLeft = 30;
-    scoreDisplay.textContent = score;
-    timeLeftDisplay.textContent = timeLeft;
-    answerField.removeEventListener('keyup', checkAnswer);
-}
