@@ -47,8 +47,8 @@ I developed a fully functional and web responsive website using HTML, CSS, and J
 
 
 ![contact us](https://github.com/user-attachments/assets/c868e46d-d70b-4690-a272-e287212943fc)
-I added a contact form so whomever can reach out using the contact us icon at the bottom of the page by clicking on the social icons 
+### I added a contact form so whomever can reach out using the contact us icon at the bottom of the page by clicking on the social icons 
 
 
 ![socials](https://github.com/user-attachments/assets/94cc55b7-db7b-4c79-9daa-440ef60ee294)
-I listed my social icons below on every page, as i mentioned above for the contact us form, i also have facebook, instagram, twitter as a way to reach  out, though they don't have any website or businness association because they are there for looks and layout
+### I listed my social icons below on every page, as i mentioned above for the contact us form, i also have facebook, instagram, twitter as a way to reach  out, though they don't have any website or businness association because they are there for looks and layout
