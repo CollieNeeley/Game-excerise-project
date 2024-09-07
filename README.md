@@ -23,3 +23,10 @@ Through these screenshots below i will describe what is what and why. This proje
 I developed a fully functional and web responsive website using HTML, CSS, and Javascript according to my requirements, rules, and specifications by my Tri - County Technical College classes
 
 
+## Screenshots for my project
+
+![home](https://github.com/user-attachments/assets/5706c47c-6ba3-403a-b711-1d2a6aaf0498)
+This is my home page 
+
+
+
