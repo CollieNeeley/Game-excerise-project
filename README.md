@@ -8,7 +8,7 @@
 Breif Introduction
 
 
-I am a recent graduate with a profound interest in technology and a dedication to solving complex problems. I look forward to expanding my technical and coding abilities vastly beyond myself, by continuosly learning strategies and dedication for organization growth. 
+I am a 2024 graduate with a profound interest in technology and a dedication to solving complex problems. I look forward to expanding my technical and coding abilities vastly beyond myself, by continuosly learning strategies and dedication for organization growth. 
 
 ## Objective
 
