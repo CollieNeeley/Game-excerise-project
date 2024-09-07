@@ -15,4 +15,7 @@ I am a recent graduate with a profound interest in technology and a dedication t
 My journey in computer science has led me to develop a passion for Front End Web Development, and i am now eager to transition into this feild, specifically aiming to join fellow developers in Front-End and grow my knowledge and be a apart of something big.
 
 
-About this project, through these screenshots below i will describe what is what and why. This project was for my final grade for my course and schooling for Tri - County Technical College. It is demonstrating a fully functional website with the aviability to play a math facts pratice game by choicing multiplication, division, addition, and subtraction. 
+# About this project 
+Through these screenshots below i will describe what is what and why. This project was for my final grade for my course and schooling for Tri - County Technical College. It is demonstrating a fully functional website with the aviability to play a math facts pratice game by choicing multiplication, division, addition, and subtraction. 
+
+
