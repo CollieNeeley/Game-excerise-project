@@ -1,47 +1,3 @@
-console.log('script js is loaded');
-
-//login form started here 
-
-function showRegisterForm() {
-
-    document.getElementById("loginForm").style.display = "none";
-
-    document.getElementById("registerForm").style.display = "block";
-}
-
-function showLoginForm() {
-
-    document.getElementById("registerForm").style.display = "none";
-
-    document.getElementById("loginForm").style.display = "block";
-}
-
-//Start of quote for home page
-const quotes = [
-    "In the end, it's not the years in your life that count. It's the life in your years. - Abraham Lincoln",
-    "Success consists of going from failure to failure without loss of ethusiam - Winston Churchill",
-    "The only limits to our relization of tomorrow is our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Stay away from those people who try to disparge your ambitions. small minds will always do that, but great minds will give you a feeling that you can become great too. - Mark Twain"
-];
-
-let currentQuoteIndex = 0;
-
-function changeQuote() {
-    const quoteElement = document.getElementById('quote-text');
-    if (quoteElement) {
-        //update the text content with the next quote
-        quoteElement.textContent = quotes[currentQuoteIndex];
-
-        //update the index, looping back to the first quote
-        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-    }
-}
-
-//time of quote to change
-setInterval(changeQuote, 10000);
-changeQuote();
-
 //Start of js for game
 
 console.log('DOM fully loads');
@@ -60,35 +16,35 @@ let score = 0;
 let timeLeft = 30;
 let timer;
 
-document.getElementById('start-button').addEventListener('click', function() {
-    console.log('GO button was clicked');
-    const gameStart = document.getElementById('game-start');
-    const gamePlay = document.getElementById('game-play');
-    gameStart.classList.add('hidden');
-    gamePlay.classList.remove('hidden');
-    generateProblem();
-});
-
-playAgainButton.addEventListener('click', function () {
-    gameEnd.classList.add('hidden');
-    gameStart.classList.remove('hidden');
-    resetGame();
-});
+// FUNCTIONS
 
 function startGame() {
     score = 0;
     timeLeft = 30;
-    updateScore();
-    updateTime();
     generateProblem();
-    answerField.focus();
-    timer = setInterval(updateTime, 10000);
+    timer = setInterval(updateTime, 1000);
+}
+
+function updateTime() {
+  timeLeft--;
+  timeLeftDisplay.textContent = timeLeft;
+
+  if (timeLeft === 0) {
+      clearInterval(timer);
+      endGame();
+  }
+}
+
+function endGame() {
+    gamePlay.classList.add('hidden');
+    gameEnd.classList.remove('hidden');
+    finalScoreDisplay.textContent = score;
 }
 
 function generateProblem() {
     console.log('generate problem');
-    const num1 = Math.floor(Math.random() * 10) + 1;
-    const num2 = Math.floor(Math.random() * 10) + 1;
+    let num1 = Math.floor(Math.random() * 10) + 1;
+    let num2 = Math.floor(Math.random() * 10) + 1;
     const operation = document.getElementById('operation').value;
     let operationSymbol = '+';
     let correctAnswer;
@@ -100,8 +56,13 @@ function generateProblem() {
 
             break;
          case 'subtraction':
-            correctAnswer = num1 - num2;
+            // check for bigger and smaller number so that the answer is not negative
+            const biggerNum = Math.max(num1, num2);
+            const smallerNum = Math.min(num1, num2);
+            correctAnswer = biggerNum - smallerNum;
             operationSymbol = '-';
+            num1 = biggerNum;
+            num2 = smallerNum;
 
             break;
         case 'multiplication':
@@ -110,9 +71,11 @@ function generateProblem() {
 
             break;
         case 'division':
-            correctAnswer = Math.floor(num1 / num2);
+            // calculate a numerator so that the answer is a whole number
+            const numerator = num1 * num2;
+            correctAnswer = Math.floor(numerator / num2);
             operationSymbol = '/'
-
+            num1 = numerator;
             break;
     }
 
@@ -123,13 +86,42 @@ function generateProblem() {
     answerField.dataset.correctAnswer = correctAnswer;
 }
 
+function checkAnswer() {
+  if (answerField.value === answerField.dataset.correctAnswer) {
+      score++;
+      scoreDisplay.textContent = score;
+      generateProblem();
+  }
+}
+
+// EVENT LISTENERS
+
+// listen to start game
+startButton.addEventListener('click', function() {
+  console.log('GO button was clicked');
+  gameStart.classList.add('hidden');
+  gamePlay.classList.remove('hidden');
+  startGame();
+});
+
+// listen to restart game
+playAgainButton.addEventListener('click', function () {
+  gameEnd.classList.add('hidden');
+  gameStart.classList.remove('hidden');
+});
+
+// listen for button presses
 document.querySelectorAll('.button-grid button').forEach(button => {
     button.addEventListener('click', function() {
         if (this.textContent === 'CLEAR') {
             answerField.value = ''; 
         } else {
             answerField.value += this.textContent;
+            checkAnswer();
         }
         answerField.focus();
     });
 });
+
+// listen for use of keyboard to input numbers
+answerField.addEventListener('input', checkAnswer);
